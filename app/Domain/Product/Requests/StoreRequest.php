@@ -2,16 +2,20 @@
 
 namespace App\Domain\Product\Requests;
 
+use App\Domain\Shared\Traits\HandlesFailedValidation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRequest extends FormRequest
 {
+
+    use HandlesFailedValidation;
+
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +27,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'category_id' => 'required|numeric',
-            'description' => 'required',
+            'description' => 'nullable',
             'price' => 'required|numeric'
         ];
     }

@@ -10,7 +10,6 @@ class CreateProduct
     public function execute(array $data): Product
     {
         $new = new Product();
-        $new->category_id = $data['category_id'];
         $new->name  = $data['name'];
         $new->description = $data['description'];
         $new->price = $data['price'];
