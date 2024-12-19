@@ -82,7 +82,7 @@ jobs:
         run: |
           sonar-scanner \
             -X \
-            -Dsonar.projectKey='tugas-akhir-fahri' \
+            -Dsonar.projectKey=tugas-akhir-fahri \
             -Dsonar.login=${{ secrets.SONAR_LOGIN }} \
             -Dsonar.host.url=${{ secrets.SONAR_HOST }} \
             -Dsonar.sources=app \
