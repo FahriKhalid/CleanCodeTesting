@@ -70,14 +70,6 @@ jobs:
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
-      - name: Set Up SonarQube Scanner
-        run: |
-          # Install SonarScanner globally if it's not included in your container
-          curl -sS https://get.sdkman.io | bash
-          source "$HOME/.sdkman/bin/sdkman-init.sh"
-          sdk install sonar-scanner
-        working-directory: /var/www/html
-
       - name: Run Quality Check
         run: |
           # Run Composer QC (or use another command if it's a custom one)
@@ -86,12 +78,14 @@ jobs:
           # Set up the SonarQube properties file (sonar-project.properties)
           cp sonar-project.properties.example sonar-project.properties
 
-          # Run the SonarScanner
-          sonar-scanner \
+          # Use the prebuilt SonarScanner Docker image
+          docker run --rm \
+            -v $(pwd):/usr/src \
+            -e SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }} \
+            -e SONAR_LOGIN=${{ secrets.SONAR_LOGIN_TOKEN }} \
+            sonarsource/sonar-scanner-cli \
             -Dsonar.projectKey=tugas-akhir-fahri \
             -Dsonar.sources=app,resources,routes \
             -Dsonar.tests=tests \
-            -Dsonar.php.coverage.reportPaths=storage/test-coverage/coverage.xml \
-            -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+            -Dsonar.php.coverage.reportPaths=storage/test-coverage/coverage.xml
         working-directory: /var/www/html
