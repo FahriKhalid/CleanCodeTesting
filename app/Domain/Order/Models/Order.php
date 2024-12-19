@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Domain\Orders\Models;
+namespace App\Domain\Order\Models;
 
+use Database\Factories\OrderFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -36,6 +37,14 @@ class Order extends Model
         'quantity' => 'integer',
         'total_price' => 'float',
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return OrderFactory::new();
+    }
 
     public function scopeProductId(Builder $query, int $productId): void
     {

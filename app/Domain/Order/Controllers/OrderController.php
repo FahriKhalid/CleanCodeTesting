@@ -2,9 +2,10 @@
 
 namespace App\Domain\Order\Controllers;
 
-use App\Domain\Orders\Requests\StoreRequest;
-use App\Domain\Orders\Services\OrderProduct;
-use App\Domain\Orders\Models\Order;
+use App\Domain\Order\DTO\OrderData;
+use App\Domain\Order\Requests\StoreRequest;
+use App\Domain\Order\Services\OrderProduct;
+use App\Domain\Order\Models\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -38,8 +39,8 @@ class OrderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $validatedData = $request->validated();
-        $createOrder = $this->orderProduct->execute($validatedData);
+        $dto = OrderData::fromRequest($request);
+        $createOrder = $this->orderProduct->execute($dto);
 
         return response()->json($createOrder);
     }

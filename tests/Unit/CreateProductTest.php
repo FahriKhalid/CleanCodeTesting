@@ -5,20 +5,23 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Domain\Product\Services\CreateProduct;
 use App\Domain\Product\Models\Product;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Domain\Product\DTO\ProductData;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CreateProductTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function test_it_creates_a_product_successfully()
     {
+        $payload = Product::factory()->make();
+
         // Arrange: Prepare test data
-        $data = [
-            'name' => 'Test Product',
-            'description' => 'This is a test product description',
-            'price' => 99.99,
-        ];
+        $data = new ProductData(
+            name: $payload->name,
+            description: $payload->description,
+            price: $payload->price,
+        );
 
         // Act: Execute the service
         $createProductService = new CreateProduct();
@@ -27,9 +30,9 @@ class CreateProductTest extends TestCase
         // Assert: Verify the product is created correctly
         $this->assertInstanceOf(Product::class, $product);
         $this->assertDatabaseHas('products', [
-            'name' => 'Test Product',
-            'description' => 'This is a test product description',
-            'price' => 99.99,
+            'name' => $payload->name,
+            'description' => $payload->description,
+            'price' => $payload->price,
         ]);
     }
 }

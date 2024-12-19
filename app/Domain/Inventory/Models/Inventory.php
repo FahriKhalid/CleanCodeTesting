@@ -2,6 +2,7 @@
 
 namespace App\Domain\Inventory\Models;
 
+use Database\Factories\InventoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +29,14 @@ class Inventory extends Model
         'product_id' => 'integer',
         'warehouse_id' => 'integer',
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return InventoryFactory::new();
+    }
 
     public function scopeProductId(Builder $query, int $productId): void
     {

@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
         \App\Domain\Warehouse\Commands\ListWarehouse::class,
         \App\Domain\Inventory\Commands\StoreInventory::class,
         \App\Domain\Inventory\Commands\ListInventory::class,
-        \App\Domain\Orders\Commands\CreateOrder::class,
-        \App\Domain\Orders\Commands\InvoiceOrder::class
+        \App\Domain\Order\Commands\CreateOrder::class,
+        \App\Domain\Order\Commands\InvoiceOrder::class
     ];
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Domain\Product\Models;
 
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,4 +25,12 @@ class Product extends Model
     protected $casts = [
         'price' => 'float'
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return ProductFactory::new();
+    }
 }

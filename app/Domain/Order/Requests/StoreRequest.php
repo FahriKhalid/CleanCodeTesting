@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Orders\Requests;
+namespace App\Domain\Order\Requests;
 
 use App\Domain\Shared\Traits\HandlesFailedValidation;
 use Illuminate\Foundation\Http\FormRequest;

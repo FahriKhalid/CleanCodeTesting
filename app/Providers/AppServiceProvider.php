@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Domain\Orders\Events\OrderProcessed;
-use App\Domain\Orders\Listeners\UpdateInventoryQuantity;
+use App\Domain\Order\Events\OrderProcessed;
+use App\Domain\Order\Listeners\UpdateInventoryQuantity;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
 

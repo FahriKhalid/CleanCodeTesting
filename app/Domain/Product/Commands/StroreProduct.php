@@ -2,6 +2,7 @@
 
 namespace App\Domain\Product\Commands;
 
+use App\Domain\Product\DTO\ProductData;
 use App\Domain\Product\Requests\StoreRequest;
 use App\Domain\Product\Services\CreateProduct;
 use Illuminate\Console\Command;
@@ -33,15 +34,15 @@ class StroreProduct extends Command
     public function handle(CreateProduct $createProduct)
     {
         // Get the input data from the command
-        $data = [
-            'name' => $this->option('name'),
-            'price' => $this->option('price'),
-            'description' => $this->option('description')
-        ];
+        $data = new ProductData(
+            name: $this->option('name'),
+            price: $this->option('price'),
+            description: $this->option('description')
+        );
 
         // Create a validator using the rules from StoreRequest
         $request = new StoreRequest();
-        $validator = Validator::make($data, $request->rules());
+        $validator = Validator::make(collect($data)->toArray(), $request->rules());
 
         try {
             // Validate the data
@@ -55,7 +56,7 @@ class StroreProduct extends Command
         }
 
         // Create the product with validated data
-        $product = $createProduct->execute($validatedData);
+        $product = $createProduct->execute($data);
 
         // Output success message
         $this->info("Product created successfully with ID: {$product->id}");

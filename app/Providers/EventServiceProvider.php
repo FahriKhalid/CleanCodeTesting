@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Domain\Orders\Events\GetProductDetail;
-use App\Domain\Orders\Events\OrderProcessed;
+use App\Domain\Order\Events\GetProductDetail;
+use App\Domain\Order\Events\OrderProcessed;
 use App\Domain\Inventory\Listeners\UpdateInventoryQuantity;
 use App\Domain\Product\Listeners\GetProductDetailListener;
 use Illuminate\Auth\Events\Registered;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Orders\Commands;
+namespace App\Domain\Order\Commands;
 
-use App\Domain\Orders\Events\GetProductDetail;
-use App\Domain\Orders\Models\Order;
+use App\Domain\Order\Events\GetProductDetail;
+use App\Domain\Order\Models\Order;
 use App\Domain\Shared\Helpers\Terbilang;
 use Illuminate\Console\Command;
 

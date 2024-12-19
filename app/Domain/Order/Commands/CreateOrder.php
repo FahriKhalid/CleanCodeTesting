@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\Orders\Commands;
+namespace App\Domain\Order\Commands;
 
-use App\Domain\Orders\Requests\StoreRequest;
-use App\Domain\Orders\Services\OrderProduct;
+use App\Domain\Order\Requests\StoreRequest;
+use App\Domain\Order\Services\OrderProduct;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;

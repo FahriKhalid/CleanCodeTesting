@@ -4,7 +4,7 @@ namespace App\Domain\Inventory\Listeners;
 
 use App\Domain\Inventory\Models\Inventory;
 use App\Domain\Inventory\Services\InventoryService;
-use App\Domain\Orders\Events\OrderProcessed;
+use App\Domain\Order\Events\OrderProcessed;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
