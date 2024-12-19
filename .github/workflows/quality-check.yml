@@ -33,12 +33,7 @@ jobs:
 
     steps:
       - name: Clone Repository
-        run: |
-          cd /var/www
-          rm -rf html
-          git clone https://github.com/FahriKhalid/CleanCodeTesting.git html
-          cd html
-          ls
+        run: cd /var/www && rm -rf html && git clone https://github.com/FahriKhalid/CleanCodeTesting.git html && cd html && ls
 
       - name: Verify Clone
         run: |
@@ -70,20 +65,28 @@ jobs:
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
-      - name: Run Quality Check
+      - name: Run Tests with Coverage
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
+        working-directory: /var/www/html
+
+      - name: Debug SonarQube Configuration
         run: |
-
-          # Set up the SonarQube properties file (sonar-project.properties)
+          echo "Current directory:"
+          pwd
+          echo "Content of sonar-project.properties after copy:"
           cp sonar-project.properties.example sonar-project.properties
+          cat sonar-project.properties
+        working-directory: /var/www/html
 
-          # Use the prebuilt SonarScanner Docker image
-          docker run --rm \
-            -v $(pwd):/usr/src \
-            -e SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }} \
-            -e SONAR_LOGIN=${{ secrets.SONAR_LOGIN_TOKEN }} \
-            sonarsource/sonar-scanner-cli \
-            -Dsonar.projectKey=tugas-akhir-fahri \
-            -Dsonar.sources=app,resources,routes \
+      - name: Run SonarQube Analysis
+        run: |
+          sonar-scanner \
+            -X \
+            -Dsonar.projectKey='${{ secrets.SONAR_PROJECT_KEY }}' \
+            -Dsonar.login=${{ secrets.SONAR_LOGIN }} \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST }} \
+            -Dsonar.sources=app \
             -Dsonar.tests=tests \
-            -Dsonar.php.coverage.reportPaths=storage/test-coverage/coverage.xml
+            -Dsonar.php.coverage.reportPaths=coverage.xml \
+            -Dsonar.sourceEncoding=UTF-8
         working-directory: /var/www/html
