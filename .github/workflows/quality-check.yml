@@ -54,7 +54,6 @@ jobs:
       - name: Setup Laravel
         run: |
           cp .env.example .env
-          # Update database configuration in .env
           sed -i 's/DB_HOST=127.0.0.1/DB_HOST=mysql/g' .env
           sed -i 's/DB_DATABASE=laravel/DB_DATABASE=laravel_test/g' .env
           sed -i 's/DB_USERNAME=root/DB_USERNAME=root/g' .env
@@ -63,14 +62,31 @@ jobs:
           composer install --no-interaction --optimize-autoloader --quiet
           php artisan key:gen
           cp .env .env.testing
-
-          # Run migrations
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
-      - name: Run Quality Check
+      - name: Run Tests with Coverage
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
+        working-directory: /var/www/html
+
+      - name: Debug SonarQube Configuration
         run: |
-          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
+          echo "Current directory:"
+          pwd
+          echo "Content of sonar-project.properties after copy:"
           cp sonar-project.properties.example sonar-project.properties
-          sonar-scanner -Dsonar.login=${{ secrets.SONAR_LOGIN }} -Dsonar.host.url=${{ secrets.SONAR_HOST }}
+          cat sonar-project.properties
+        working-directory: /var/www/html
+
+      - name: Run SonarQube Analysis
+        run: |
+          sonar-scanner \
+            -X \
+            -Dsonar.projectKey='tugas-akhir-fahri' \
+            -Dsonar.login=${{ secrets.SONAR_LOGIN }} \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST }} \
+            -Dsonar.sources=app \
+            -Dsonar.tests=tests \
+            -Dsonar.php.coverage.reportPaths=coverage.xml \
+            -Dsonar.sourceEncoding=UTF-8
         working-directory: /var/www/html
