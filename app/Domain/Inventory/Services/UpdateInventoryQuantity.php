@@ -6,10 +6,9 @@ use App\Domain\Inventory\Models\Inventory;
 
 class UpdateInventoryQuantity
 {
-    public function execute(Inventory $inventory, int $quantity, string $operation = '+='): Inventory
+    public function execute(Inventory $inventory, int $quantity): Inventory
     {
-        // Adjust the quantity as needed
-        $inventory->quantity += $quantity;  // Or other logic for quantity adjustment
+        $inventory->quantity += $quantity;
         $inventory->save();
 
         return $inventory;

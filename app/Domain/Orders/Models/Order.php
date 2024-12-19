@@ -37,8 +37,8 @@ class Order extends Model
         'total_price' => 'float',
     ];
 
-    public function scopeProductId(Builder $query, int $product_id): void
+    public function scopeProductId(Builder $query, int $productId): void
     {
-        $query->where('product_id', $product_id);
+        $query->where('product_id', $productId);
     }
 }

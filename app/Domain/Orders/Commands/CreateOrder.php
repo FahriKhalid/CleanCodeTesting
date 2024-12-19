@@ -59,13 +59,11 @@ class CreateOrder extends Command
             // Output success message
             $this->info("Order has been processed");
 
-            return Command::SUCCESS;
+            return Command::SUCCESS; // Exit with success code
         } catch (\Throwable $th) {
 
-            // Output failure message
             $this->info($th->getMessage());
-
-            return Command::FAILURE;
+            return Command::FAILURE; // Exit with failure code
         }
     }
 }

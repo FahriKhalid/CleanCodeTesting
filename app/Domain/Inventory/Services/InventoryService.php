@@ -2,8 +2,8 @@
 
 namespace App\Domain\Inventory\Services;
 
+use App\Domain\Inventory\Exceptions\InsufficientStockException;
 use App\Domain\Inventory\Models\Inventory;
-use Exception;
 use Illuminate\Support\Facades\Log;
 
 class InventoryService
@@ -34,7 +34,7 @@ class InventoryService
             'available_quantity' => $available,
         ]);
 
-        throw new Exception('Not enough stock to fulfill the order.');
+        throw new InsufficientStockException($productId, $required, $available);
     }
 
     protected function deductFromWarehouses(int $productId, int $quantityToDeduct): void

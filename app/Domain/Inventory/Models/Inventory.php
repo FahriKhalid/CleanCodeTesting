@@ -29,14 +29,14 @@ class Inventory extends Model
         'warehouse_id' => 'integer',
     ];
 
-    public function scopeProductId(Builder $query, int $product_id): void
+    public function scopeProductId(Builder $query, int $productId): void
     {
-        $query->where('product_id', $product_id);
+        $query->where('product_id', $productId);
     }
 
-    public function scopeWarehouseId(Builder $query, int $warehouse_id): void
+    public function scopeWarehouseId(Builder $query, int $warehouseId): void
     {
-        $query->where('warehouse_id', $warehouse_id);
+        $query->where('warehouse_id', $warehouseId);
     }
 
     public function scopeQuantityAvailable(Builder $query): void

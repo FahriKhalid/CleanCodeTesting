@@ -32,17 +32,17 @@ class InvoiceOrder extends Command
      */
     public function handle()
     {
-        $order_id = $this->option('order_id');
+        $orderId = $this->option('order_id');
 
         // Check if order_id is provided
-        if (!$order_id) {
+        if (!$orderId) {
             $this->error('The --order_id option is required.');
             return Command::FAILURE; // Exit with failure code
         }
 
         try {
             // Step 1: Get detail order by order id
-            $order = Order::findOrFail($order_id);
+            $order = Order::findOrFail($orderId);
 
             // Step 2: Get product detail via Domain Event
             $productDetail = event(new GetProductDetail($order['product_id']))[0];

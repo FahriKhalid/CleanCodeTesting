@@ -1,0 +1,6 @@
+projectKey=tugas-akhir-fahri
+serverUrl=https://pktsonar.geekacademy.id
+serverVersion=9.9.7.96285
+dashboardUrl=https://pktsonar.geekacademy.id/dashboard?id=tugas-akhir-fahri
+ceTaskId=AZPd3nGFyPYxZ6tzbnwk
+ceTaskUrl=https://pktsonar.geekacademy.id/api/ce/task?id=AZPd3nGFyPYxZ6tzbnwk

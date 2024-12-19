@@ -6,10 +6,10 @@ use App\Domain\Inventory\Models\Inventory;
 
 class CheckUniqueInventory
 {
-    public function execute(int $product_id, int $warehouse_id): ?Inventory
+    public function execute(int $productId, int $warehouseId): ?Inventory
     {
-        return Inventory::productId($product_id)
-            ->warehouseId($warehouse_id)
+        return Inventory::productId($productId)
+            ->warehouseId($warehouseId)
             ->first();
     }
 }
