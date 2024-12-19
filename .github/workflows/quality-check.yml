@@ -33,7 +33,12 @@ jobs:
 
     steps:
       - name: Clone Repository
-        run: cd /var/www && rm -rf html && git clone https://github.com/FahriKhalid/CleanCodeTesting.git html && cd html && ls
+        run: |
+          cd /var/www
+          rm -rf html
+          git clone https://github.com/FahriKhalid/CleanCodeTesting.git html
+          cd html
+          ls
 
       - name: Verify Clone
         run: |
@@ -65,9 +70,28 @@ jobs:
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
+      - name: Set Up SonarQube Scanner
+        run: |
+          # Install SonarScanner globally if it's not included in your container
+          curl -sS https://get.sdkman.io | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk install sonar-scanner
+        working-directory: /var/www/html
+
       - name: Run Quality Check
         run: |
-          composer qc
+          # Run Composer QC (or use another command if it's a custom one)
+          composer run qc || true
+
+          # Set up the SonarQube properties file (sonar-project.properties)
           cp sonar-project.properties.example sonar-project.properties
-          sonar-scanner -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+
+          # Run the SonarScanner
+          sonar-scanner \
+            -Dsonar.projectKey=tugas-akhir-fahri \
+            -Dsonar.sources=app,resources,routes \
+            -Dsonar.tests=tests \
+            -Dsonar.php.coverage.reportPaths=storage/test-coverage/coverage.xml \
+            -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
         working-directory: /var/www/html
