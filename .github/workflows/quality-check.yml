@@ -10,9 +10,26 @@ jobs:
   quality-check:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: laravel_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     container:
       image: ramageek/image:php8.3-laravel-dev
       options: --workdir /var/www/html
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: mysql
+        DB_PORT: 3306
+        DB_DATABASE: laravel_test
+        DB_USERNAME: root
+        DB_PASSWORD: password
 
     steps:
       - name: Clone Repository
@@ -37,10 +54,18 @@ jobs:
       - name: Setup Laravel
         run: |
           cp .env.example .env
-          git status
+          # Update database configuration in .env
+          sed -i 's/DB_HOST=127.0.0.1/DB_HOST=mysql/g' .env
+          sed -i 's/DB_DATABASE=laravel/DB_DATABASE=laravel_test/g' .env
+          sed -i 's/DB_USERNAME=root/DB_USERNAME=root/g' .env
+          sed -i 's/DB_PASSWORD=/DB_PASSWORD=password/g' .env
+
           composer install --no-interaction --optimize-autoloader --quiet
           php artisan key:gen
           cp .env .env.testing
+
+          # Run migrations
+          php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
       - name: Run Quality Check
