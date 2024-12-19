@@ -16,7 +16,6 @@ class CreateProductTest extends TestCase
         // Arrange: Prepare test data
         $data = [
             'name' => 'Test Product',
-            'category_id' => 1,
             'description' => 'This is a test product description',
             'price' => 99.99,
         ];
@@ -29,7 +28,6 @@ class CreateProductTest extends TestCase
         $this->assertInstanceOf(Product::class, $product);
         $this->assertDatabaseHas('products', [
             'name' => 'Test Product',
-            'category_id' => 1,
             'description' => 'This is a test product description',
             'price' => 99.99,
         ]);

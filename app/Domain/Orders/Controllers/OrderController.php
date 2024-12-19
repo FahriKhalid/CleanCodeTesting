@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Domain\Product\Controllers;
+namespace App\Domain\Order\Controllers;
 
-use App\Domain\Product\Models\Product;
-use App\Domain\Product\Requests\StoreRequest;
-use App\Domain\Product\Services\CreateProduct;
+use App\Domain\Orders\Requests\StoreRequest;
+use App\Domain\Orders\Services\OrderProduct;
+use App\Domain\Orders\Models\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
-    protected $createProduct;
+    protected $orderProduct;
 
-    public function __construct(CreateProduct $createProduct)
+    public function __construct(OrderProduct $orderProduct)
     {
-        $this->createProduct = $createProduct;
+        $this->orderProduct = $orderProduct;
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::get();
+        return Order::get();
     }
 
     /**
@@ -39,9 +39,9 @@ class ProductController extends Controller
     public function store(StoreRequest $request)
     {
         $validatedData = $request->validated();
-        $createProduct = $this->createProduct->execute($validatedData);
+        $createOrder = $this->orderProduct->execute($validatedData);
 
-        return response()->json($createProduct);
+        return response()->json($createOrder);
     }
 
     /**

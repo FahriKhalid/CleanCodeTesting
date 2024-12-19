@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Domain\Product\Controllers;
+namespace App\Domain\Warehouse\Controllers;
 
 use App\Domain\Product\Models\Product;
-use App\Domain\Product\Requests\StoreRequest;
-use App\Domain\Product\Services\CreateProduct;
+use App\Domain\Warehouse\Requests\StoreRequest;
+use App\Domain\Warehouse\Services\CreateWarehouse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class WarehouseController extends Controller
 {
-    protected $createProduct;
 
-    public function __construct(CreateProduct $createProduct)
+    protected $createWarehouse;
+
+    public function __construct(CreateWarehouse $createWarehouse)
     {
-        $this->createProduct = $createProduct;
+        $this->createWarehouse = $createWarehouse;
     }
 
     /**
@@ -39,9 +40,9 @@ class ProductController extends Controller
     public function store(StoreRequest $request)
     {
         $validatedData = $request->validated();
-        $createProduct = $this->createProduct->execute($validatedData);
+        $createWarehouse = $this->createWarehouse->execute($validatedData);
 
-        return response()->json($createProduct);
+        return response()->json($createWarehouse);
     }
 
     /**

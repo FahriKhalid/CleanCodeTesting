@@ -1,6 +1,9 @@
 <?php
 
+use App\Domain\Inventory\Controllers\InventoryController;
+use App\Domain\Order\Controllers\OrderController;
 use App\Domain\Product\Controllers\ProductController;
+use App\Domain\Warehouse\Controllers\WarehouseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +31,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/product', [ProductController::class, 'store']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Warehouse Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/warehouse', [WarehouseController::class, 'index']);
+Route::post('/warehouse', [WarehouseController::class, 'store']);
+
+/*
+|--------------------------------------------------------------------------
+| Inventory Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/inventory', [InventoryController::class, 'index']);
+Route::post('/inventory', [InventoryController::class, 'store']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Order Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/order', [OrderController::class, 'index']);
+Route::post('/order', [OrderController::class, 'store']);

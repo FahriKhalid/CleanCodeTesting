@@ -14,7 +14,7 @@ class Product extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'category_id', 'description', 'price'];
+    protected $fillable = ['name', 'description', 'price'];
 
     /**
      * The attributes that should be cast.
@@ -22,6 +22,6 @@ class Product extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'category_id' => 'integer'
+        'price' => 'float'
     ];
 }

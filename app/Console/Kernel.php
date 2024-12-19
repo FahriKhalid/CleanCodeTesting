@@ -10,6 +10,13 @@ class Kernel extends ConsoleKernel
 
     protected $commands = [
         \App\Domain\Product\Commands\StroreProduct::class,
+        \App\Domain\Product\Commands\ListProduct::class,
+        \App\Domain\Warehouse\Commands\StoreWarehouse::class,
+        \App\Domain\Warehouse\Commands\ListWarehouse::class,
+        \App\Domain\Inventory\Commands\StoreInventory::class,
+        \App\Domain\Inventory\Commands\ListInventory::class,
+        \App\Domain\Orders\Commands\CreateOrder::class,
+        \App\Domain\Orders\Commands\InvoiceOrder::class
     ];
 
     /**

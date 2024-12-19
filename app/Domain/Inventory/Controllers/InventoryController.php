@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Domain\Product\Controllers;
+namespace App\Domain\Inventory\Controllers;
 
-use App\Domain\Product\Models\Product;
-use App\Domain\Product\Requests\StoreRequest;
-use App\Domain\Product\Services\CreateProduct;
+use App\Domain\Inventory\Models\Inventory;
+use App\Domain\Inventory\Requests\StoreRequest;
+use App\Domain\Inventory\Services\CreateOrUpdateInventory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class InventoryController extends Controller
 {
-    protected $createProduct;
+    protected $createOrUpdateInventory;
 
-    public function __construct(CreateProduct $createProduct)
+    public function __construct(CreateOrUpdateInventory $createOrUpdateInventory)
     {
-        $this->createProduct = $createProduct;
+        $this->createOrUpdateInventory = $createOrUpdateInventory;
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::get();
+        return Inventory::get();
     }
 
     /**
@@ -39,9 +39,9 @@ class ProductController extends Controller
     public function store(StoreRequest $request)
     {
         $validatedData = $request->validated();
-        $createProduct = $this->createProduct->execute($validatedData);
+        $createOrUpdateInventory = $this->createOrUpdateInventory->execute($validatedData);
 
-        return response()->json($createProduct);
+        return response()->json($createOrUpdateInventory);
     }
 
     /**

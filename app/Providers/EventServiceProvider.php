@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Domain\Orders\Events\GetProductDetail;
+use App\Domain\Orders\Events\OrderProcessed;
+use App\Domain\Inventory\Listeners\UpdateInventoryQuantity;
+use App\Domain\Product\Listeners\GetProductDetailListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +21,14 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+
+        GetProductDetail::class => [
+            GetProductDetailListener::class
+        ],
+
+        OrderProcessed::class => [
+            UpdateInventoryQuantity::class
         ],
     ];
 
