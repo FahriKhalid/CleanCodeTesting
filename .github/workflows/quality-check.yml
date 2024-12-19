@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: bitnami/laravel
+      image: ramageek/image:php8.3-laravel-dev
       options: --workdir /var/www/html
 
     steps:
