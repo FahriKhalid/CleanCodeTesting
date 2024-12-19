@@ -72,8 +72,6 @@ jobs:
 
       - name: Run Quality Check
         run: |
-          # Run Composer QC (or use another command if it's a custom one)
-          composer run qc || true
 
           # Set up the SonarQube properties file (sonar-project.properties)
           cp sonar-project.properties.example sonar-project.properties
