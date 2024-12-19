@@ -65,7 +65,7 @@ jobs:
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
-        - name: Run Quality Check
+      - name: Run Quality Check
         run: |
           composer qc
           cp sonar-project.properties.example sonar-project.properties
