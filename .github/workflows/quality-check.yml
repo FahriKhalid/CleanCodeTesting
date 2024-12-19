@@ -65,28 +65,9 @@ jobs:
           php artisan migrate:fresh --seed
         working-directory: /var/www/html
 
-      - name: Run Tests with Coverage
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
-        working-directory: /var/www/html
-
-      - name: Debug SonarQube Configuration
+        - name: Run Quality Check
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Content of sonar-project.properties after copy:"
+          composer qc
           cp sonar-project.properties.example sonar-project.properties
-          cat sonar-project.properties
-        working-directory: /var/www/html
-
-      - name: Run SonarQube Analysis
-        run: |
-          sonar-scanner \
-            -X \
-            -Dsonar.projectKey=tugas-akhir-fahri \
-            -Dsonar.login=${{ secrets.SONAR_LOGIN }} \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST }} \
-            -Dsonar.sources=app \
-            -Dsonar.tests=tests \
-            -Dsonar.php.coverage.reportPaths=coverage.xml \
-            -Dsonar.sourceEncoding=UTF-8
+          sonar-scanner -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
         working-directory: /var/www/html
