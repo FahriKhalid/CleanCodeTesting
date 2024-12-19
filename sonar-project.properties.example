@@ -1,0 +1,4 @@
+sonar.projectKey=tugas-akhir-fahri
+
+sonar.sources=app
+sonar.php.coverage.reportPaths=coverage.xml
