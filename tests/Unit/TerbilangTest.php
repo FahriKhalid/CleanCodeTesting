@@ -25,6 +25,12 @@ class TerbilangTest extends TestCase
         $this->assertEquals('sebelas', $terbilang->toString());
     }
 
+    public function testTwelve()
+    {
+        $terbilang = new Terbilang(12);
+        $this->assertEquals('dua belas', $terbilang->toString());
+    }
+
     public function testTwenty()
     {
         $terbilang = new Terbilang(20);

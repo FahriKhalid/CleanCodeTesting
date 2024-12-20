@@ -14,7 +14,7 @@ class InventoryService
         $totalAvailableQuantity = $this->getTotalAvailableQuantity($productId);
 
         if ($quantityToDeduct > $totalAvailableQuantity) {
-            $this->handleInsufficientStock($productId, $quantityToDeduct, $totalAvailableQuantity);
+            throw new InsufficientStockException($quantityToDeduct, $totalAvailableQuantity);
         }
 
         // Step 2: Deduct quantity across warehouses
@@ -24,17 +24,6 @@ class InventoryService
     protected function getTotalAvailableQuantity(int $productId): int
     {
         return Inventory::where('product_id', $productId)->sum('quantity');
-    }
-
-    protected function handleInsufficientStock(int $productId, int $required, int $available): void
-    {
-        Log::warning('Insufficient stock for product order.', [
-            'product_id' => $productId,
-            'required_quantity' => $required,
-            'available_quantity' => $available,
-        ]);
-
-        throw new InsufficientStockException($productId, $required, $available);
     }
 
     protected function deductFromWarehouses(int $productId, int $quantityToDeduct): void

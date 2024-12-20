@@ -3,6 +3,7 @@
 namespace App\Domain\Product\Listeners;
 
 use App\Domain\Order\Events\GetProductDetail;
+use App\Domain\Product\Exceptions\ProductNotFoundException;
 use App\Domain\Product\Models\Product;
 use Exception;
 
@@ -14,7 +15,7 @@ class GetProductDetailListener
         $product = Product::find($event->productId);
 
         if (! $product) {
-            throw new Exception('Product not found.');
+            throw new ProductNotFoundException();
         }
 
         return $product;

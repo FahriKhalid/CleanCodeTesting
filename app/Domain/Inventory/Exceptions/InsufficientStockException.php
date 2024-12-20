@@ -6,11 +6,9 @@ use Exception;
 
 class InsufficientStockException extends Exception
 {
-    public function __construct(int $productId, int $required, int $available)
+    public function __construct(int $required, int $available)
     {
-        $message = "Not enough stock to fulfill the order for product ID: $productId. \n
-        Required: $required, \n
-        Available: $available.";
+        $message = "Insufficient stock! Exist only:$available but required: $required";
         parent::__construct($message);
     }
 }
