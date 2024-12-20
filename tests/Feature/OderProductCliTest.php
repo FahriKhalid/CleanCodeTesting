@@ -66,12 +66,12 @@ class OderProductCliTest extends TestCase
         $this->app->instance(Terbilang::class, $terbilangMock);
 
         // Run the command
-        $this->artisan('api:post-invoice --order_id=20')
+        $this->artisan('api:post-invoice --order_id=' . $order->id)
             ->expectsTable(
                 ['Nama', 'Harga', 'Jumlah', 'Total Harga', 'Terbilang'],
                 [
                     [
-                        'Nama' => 'sepatu',
+                        'Nama' => 'jaket',
                         'Harga' => 400000,
                         'Jumlah' => 2,
                         'Total Harga' => 800000,
