@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\TIK100\Documents\Pelatihan Clean Code\ujian\monolith-app\app\Domain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">C:\Users\TIK100\Documents\Pelatihan Clean Code\ujian\monolith-app\app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Domain</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Inventory/Services/UpdateInventoryQuantity.php.html#7">App\Domain\Inventory\Services\UpdateInventoryQuantity</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Shared/Traits/HandlesFailedValidation.php.html#8">App\Domain\Shared\Traits\HandlesFailedValidation</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Inventory/Listeners/UpdateInventoryQuantity.php.html#11">App\Domain\Inventory\Listeners\UpdateInventoryQuantity</a></td><td class="text-right">40%</td></tr>
+       <tr><td><a href="Warehouse/Commands/StoreWarehouse.php.html#11">App\Domain\Warehouse\Commands\StoreWarehouse</a></td><td class="text-right">69%</td></tr>
+       <tr><td><a href="Inventory/Commands/StoreInventory.php.html#11">App\Domain\Inventory\Commands\StoreInventory</a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Product/Commands/StroreProduct.php.html#12">App\Domain\Product\Commands\StroreProduct</a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Inventory/Models/Inventory.php.html#10">App\Domain\Inventory\Models\Inventory</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Order/Commands/InvoiceOrder.php.html#10">App\Domain\Order\Commands\InvoiceOrder</a></td><td class="text-right">78%</td></tr>
+       <tr><td><a href="Inventory/Controllers/InventoryController.php.html#10">App\Domain\Inventory\Controllers\InventoryController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Order/Controllers/OrderController.php.html#11">App\Domain\Order\Controllers\OrderController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Product/Controllers/ProductController.php.html#11">App\Domain\Product\Controllers\ProductController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Warehouse/Controllers/WarehouseController.php.html#10">App\Domain\Warehouse\Controllers\WarehouseController</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Inventory/Services/CreateOrUpdateInventory.php.html#7">App\Domain\Inventory\Services\CreateOrUpdateInventory</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Shared/Traits/HandlesFailedValidation.php.html#8">App\Domain\Shared\Traits\HandlesFailedValidation</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Inventory/Listeners/UpdateInventoryQuantity.php.html#11">App\Domain\Inventory\Listeners\UpdateInventoryQuantity</a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Warehouse/Commands/StoreWarehouse.php.html#11">App\Domain\Warehouse\Commands\StoreWarehouse</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Commands/StoreInventory.php.html#11">App\Domain\Inventory\Commands\StoreInventory</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Product/Commands/StroreProduct.php.html#12">App\Domain\Product\Commands\StroreProduct</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Order/Commands/InvoiceOrder.php.html#10">App\Domain\Order\Commands\InvoiceOrder</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Services/CreateOrUpdateInventory.php.html#7">App\Domain\Inventory\Services\CreateOrUpdateInventory</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Inventory/Controllers/InventoryController.php.html#22"><abbr title="App\Domain\Inventory\Controllers\InventoryController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Inventory/Models/Inventory.php.html#51"><abbr title="App\Domain\Inventory\Models\Inventory::scopeQuantityAvailable">scopeQuantityAvailable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Inventory/Services/UpdateInventoryQuantity.php.html#9"><abbr title="App\Domain\Inventory\Services\UpdateInventoryQuantity::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Order/Controllers/OrderController.php.html#23"><abbr title="App\Domain\Order\Controllers\OrderController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Product/Controllers/ProductController.php.html#23"><abbr title="App\Domain\Product\Controllers\ProductController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Warehouse/Controllers/WarehouseController.php.html#22"><abbr title="App\Domain\Warehouse\Controllers\WarehouseController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Shared/Traits/HandlesFailedValidation.php.html#18"><abbr title="App\Domain\Shared\Traits\HandlesFailedValidation::failedValidation">failedValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Inventory/Listeners/UpdateInventoryQuantity.php.html#20"><abbr title="App\Domain\Inventory\Listeners\UpdateInventoryQuantity::handle">handle</abbr></a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Warehouse/Commands/StoreWarehouse.php.html#31"><abbr title="App\Domain\Warehouse\Commands\StoreWarehouse::handle">handle</abbr></a></td><td class="text-right">69%</td></tr>
+       <tr><td><a href="Inventory/Commands/StoreInventory.php.html#33"><abbr title="App\Domain\Inventory\Commands\StoreInventory::handle">handle</abbr></a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Product/Commands/StroreProduct.php.html#34"><abbr title="App\Domain\Product\Commands\StroreProduct::handle">handle</abbr></a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Inventory/Services/CreateOrUpdateInventory.php.html#25"><abbr title="App\Domain\Inventory\Services\CreateOrUpdateInventory::execute">execute</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Order/Commands/InvoiceOrder.php.html#30"><abbr title="App\Domain\Order\Commands\InvoiceOrder::handle">handle</abbr></a></td><td class="text-right">78%</td></tr>
+       <tr><td><a href="Inventory/Services/InventoryService.php.html#29"><abbr title="App\Domain\Inventory\Services\InventoryService::deductFromWarehouses">deductFromWarehouses</abbr></a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Shared/Traits/HandlesFailedValidation.php.html#18"><abbr title="App\Domain\Shared\Traits\HandlesFailedValidation::failedValidation">failedValidation</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Warehouse/Commands/StoreWarehouse.php.html#31"><abbr title="App\Domain\Warehouse\Commands\StoreWarehouse::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Listeners/UpdateInventoryQuantity.php.html#20"><abbr title="App\Domain\Inventory\Listeners\UpdateInventoryQuantity::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Commands/StoreInventory.php.html#33"><abbr title="App\Domain\Inventory\Commands\StoreInventory::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Product/Commands/StroreProduct.php.html#34"><abbr title="App\Domain\Product\Commands\StroreProduct::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Order/Commands/InvoiceOrder.php.html#30"><abbr title="App\Domain\Order\Commands\InvoiceOrder::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Services/InventoryService.php.html#29"><abbr title="App\Domain\Inventory\Services\InventoryService::deductFromWarehouses">deductFromWarehouses</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Inventory/Services/CreateOrUpdateInventory.php.html#25"><abbr title="App\Domain\Inventory\Services\CreateOrUpdateInventory::execute">execute</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.4</a> and <a href="https://phpunit.de/">PHPUnit 10.5.39</a> at Fri Dec 20 10:45:29 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,0,0,0,1,0,1,4,5,1,27], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,0,0,0,1,0,0,1,4,1,0,48], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Inventory\/Commands\/ListInventory.php.html#8\">App\\Domain\\Inventory\\Commands\\ListInventory<\/a>"],[73.33333333333333,3,"<a href=\"Inventory\/Commands\/StoreInventory.php.html#11\">App\\Domain\\Inventory\\Commands\\StoreInventory<\/a>"],[80,3,"<a href=\"Inventory\/Controllers\/InventoryController.php.html#10\">App\\Domain\\Inventory\\Controllers\\InventoryController<\/a>"],[100,1,"<a href=\"Inventory\/Exceptions\/InsufficientStockException.php.html#7\">App\\Domain\\Inventory\\Exceptions\\InsufficientStockException<\/a>"],[40,3,"<a href=\"Inventory\/Listeners\/UpdateInventoryQuantity.php.html#11\">App\\Domain\\Inventory\\Listeners\\UpdateInventoryQuantity<\/a>"],[75,4,"<a href=\"Inventory\/Models\/Inventory.php.html#10\">App\\Domain\\Inventory\\Models\\Inventory<\/a>"],[100,2,"<a href=\"Inventory\/Requests\/StoreRequest.php.html#8\">App\\Domain\\Inventory\\Requests\\StoreRequest<\/a>"],[100,1,"<a href=\"Inventory\/Services\/CheckUniqueInventory.php.html#7\">App\\Domain\\Inventory\\Services\\CheckUniqueInventory<\/a>"],[100,1,"<a href=\"Inventory\/Services\/CreateInventory.php.html#7\">App\\Domain\\Inventory\\Services\\CreateInventory<\/a>"],[85.71428571428571,3,"<a href=\"Inventory\/Services\/CreateOrUpdateInventory.php.html#7\">App\\Domain\\Inventory\\Services\\CreateOrUpdateInventory<\/a>"],[95,8,"<a href=\"Inventory\/Services\/InventoryService.php.html#9\">App\\Domain\\Inventory\\Services\\InventoryService<\/a>"],[0,1,"<a href=\"Inventory\/Services\/UpdateInventoryQuantity.php.html#7\">App\\Domain\\Inventory\\Services\\UpdateInventoryQuantity<\/a>"],[100,1,"<a href=\"Order\/Commands\/CreateOrder.php.html#12\">App\\Domain\\Order\\Commands\\CreateOrder<\/a>"],[78.26086956521739,3,"<a href=\"Order\/Commands\/InvoiceOrder.php.html#10\">App\\Domain\\Order\\Commands\\InvoiceOrder<\/a>"],[80,3,"<a href=\"Order\/Controllers\/OrderController.php.html#11\">App\\Domain\\Order\\Controllers\\OrderController<\/a>"],[100,1,"<a href=\"Order\/DTO\/OrderData.php.html#7\">App\\Domain\\Order\\DTO\\OrderData<\/a>"],[100,1,"<a href=\"Order\/Events\/GetProductDetail.php.html#8\">App\\Domain\\Order\\Events\\GetProductDetail<\/a>"],[100,1,"<a href=\"Order\/Events\/OrderProcessed.php.html#8\">App\\Domain\\Order\\Events\\OrderProcessed<\/a>"],[100,1,"<a href=\"Order\/Models\/Order.php.html#10\">App\\Domain\\Order\\Models\\Order<\/a>"],[100,2,"<a href=\"Order\/Requests\/StoreRequest.php.html#8\">App\\Domain\\Order\\Requests\\StoreRequest<\/a>"],[100,1,"<a href=\"Order\/Services\/CreateOrder.php.html#9\">App\\Domain\\Order\\Services\\CreateOrder<\/a>"],[100,2,"<a href=\"Order\/Services\/OrderProduct.php.html#10\">App\\Domain\\Order\\Services\\OrderProduct<\/a>"],[100,1,"<a href=\"Product\/Commands\/ListProduct.php.html#8\">App\\Domain\\Product\\Commands\\ListProduct<\/a>"],[73.33333333333333,3,"<a href=\"Product\/Commands\/StroreProduct.php.html#12\">App\\Domain\\Product\\Commands\\StroreProduct<\/a>"],[80,3,"<a href=\"Product\/Controllers\/ProductController.php.html#11\">App\\Domain\\Product\\Controllers\\ProductController<\/a>"],[100,1,"<a href=\"Product\/DTO\/ProductData.php.html#7\">App\\Domain\\Product\\DTO\\ProductData<\/a>"],[100,0,"<a href=\"Product\/Exceptions\/ProductNotFoundException.php.html#8\">App\\Domain\\Product\\Exceptions\\ProductNotFoundException<\/a>"],[100,2,"<a href=\"Product\/Listeners\/GetProductDetailListener.php.html#10\">App\\Domain\\Product\\Listeners\\GetProductDetailListener<\/a>"],[100,1,"<a href=\"Product\/Models\/Product.php.html#9\">App\\Domain\\Product\\Models\\Product<\/a>"],[100,2,"<a href=\"Product\/Requests\/StoreRequest.php.html#8\">App\\Domain\\Product\\Requests\\StoreRequest<\/a>"],[100,1,"<a href=\"Product\/Services\/CreateProduct.php.html#8\">App\\Domain\\Product\\Services\\CreateProduct<\/a>"],[100,0,"<a href=\"Ratings\/Models\/Ratings.php.html#8\">App\\Domain\\Ratings\\Models\\Ratings<\/a>"],[100,15,"<a href=\"Shared\/Helpers\/Terbilang.php.html#5\">App\\Domain\\Shared\\Helpers\\Terbilang<\/a>"],[100,1,"<a href=\"Warehouse\/Commands\/ListWarehouse.php.html#8\">App\\Domain\\Warehouse\\Commands\\ListWarehouse<\/a>"],[69.23076923076923,3,"<a href=\"Warehouse\/Commands\/StoreWarehouse.php.html#11\">App\\Domain\\Warehouse\\Commands\\StoreWarehouse<\/a>"],[80,3,"<a href=\"Warehouse\/Controllers\/WarehouseController.php.html#10\">App\\Domain\\Warehouse\\Controllers\\WarehouseController<\/a>"],[100,1,"<a href=\"Warehouse\/Models\/Warehouse.php.html#9\">App\\Domain\\Warehouse\\Models\\Warehouse<\/a>"],[100,2,"<a href=\"Warehouse\/Requests\/StoreRequest.php.html#8\">App\\Domain\\Warehouse\\Requests\\StoreRequest<\/a>"],[100,1,"<a href=\"Warehouse\/Services\/CreateWarehouse.php.html#7\">App\\Domain\\Warehouse\\Services\\CreateWarehouse<\/a>"],[100,3,"<a href=\"Shared\/Traits\/FormRequestTrait.php.html#7\">App\\Domain\\Shared\\Traits\\FormRequestTrait<\/a>"],[0,2,"<a href=\"Shared\/Traits\/HandlesFailedValidation.php.html#8\">App\\Domain\\Shared\\Traits\\HandlesFailedValidation<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Inventory\/Commands\/ListInventory.php.html#27\">App\\Domain\\Inventory\\Commands\\ListInventory::handle<\/a>"],[73.33333333333333,3,"<a href=\"Inventory\/Commands\/StoreInventory.php.html#33\">App\\Domain\\Inventory\\Commands\\StoreInventory::handle<\/a>"],[100,1,"<a href=\"Inventory\/Controllers\/InventoryController.php.html#14\">App\\Domain\\Inventory\\Controllers\\InventoryController::__construct<\/a>"],[0,1,"<a href=\"Inventory\/Controllers\/InventoryController.php.html#22\">App\\Domain\\Inventory\\Controllers\\InventoryController::index<\/a>"],[100,1,"<a href=\"Inventory\/Controllers\/InventoryController.php.html#30\">App\\Domain\\Inventory\\Controllers\\InventoryController::store<\/a>"],[100,1,"<a href=\"Inventory\/Exceptions\/InsufficientStockException.php.html#9\">App\\Domain\\Inventory\\Exceptions\\InsufficientStockException::__construct<\/a>"],[100,1,"<a href=\"Inventory\/Listeners\/UpdateInventoryQuantity.php.html#15\">App\\Domain\\Inventory\\Listeners\\UpdateInventoryQuantity::__construct<\/a>"],[33.33333333333333,2,"<a href=\"Inventory\/Listeners\/UpdateInventoryQuantity.php.html#20\">App\\Domain\\Inventory\\Listeners\\UpdateInventoryQuantity::handle<\/a>"],[100,1,"<a href=\"Inventory\/Models\/Inventory.php.html#36\">App\\Domain\\Inventory\\Models\\Inventory::newFactory<\/a>"],[100,1,"<a href=\"Inventory\/Models\/Inventory.php.html#41\">App\\Domain\\Inventory\\Models\\Inventory::scopeProductId<\/a>"],[100,1,"<a href=\"Inventory\/Models\/Inventory.php.html#46\">App\\Domain\\Inventory\\Models\\Inventory::scopeWarehouseId<\/a>"],[0,1,"<a href=\"Inventory\/Models\/Inventory.php.html#51\">App\\Domain\\Inventory\\Models\\Inventory::scopeQuantityAvailable<\/a>"],[100,1,"<a href=\"Inventory\/Requests\/StoreRequest.php.html#15\">App\\Domain\\Inventory\\Requests\\StoreRequest::authorize<\/a>"],[100,1,"<a href=\"Inventory\/Requests\/StoreRequest.php.html#25\">App\\Domain\\Inventory\\Requests\\StoreRequest::rules<\/a>"],[100,1,"<a href=\"Inventory\/Services\/CheckUniqueInventory.php.html#9\">App\\Domain\\Inventory\\Services\\CheckUniqueInventory::execute<\/a>"],[100,1,"<a href=\"Inventory\/Services\/CreateInventory.php.html#9\">App\\Domain\\Inventory\\Services\\CreateInventory::execute<\/a>"],[100,1,"<a href=\"Inventory\/Services\/CreateOrUpdateInventory.php.html#15\">App\\Domain\\Inventory\\Services\\CreateOrUpdateInventory::__construct<\/a>"],[75,2,"<a href=\"Inventory\/Services\/CreateOrUpdateInventory.php.html#25\">App\\Domain\\Inventory\\Services\\CreateOrUpdateInventory::execute<\/a>"],[100,2,"<a href=\"Inventory\/Services\/InventoryService.php.html#11\">App\\Domain\\Inventory\\Services\\InventoryService::updateProductInventory<\/a>"],[100,1,"<a href=\"Inventory\/Services\/InventoryService.php.html#24\">App\\Domain\\Inventory\\Services\\InventoryService::getTotalAvailableQuantity<\/a>"],[85.71428571428571,3,"<a href=\"Inventory\/Services\/InventoryService.php.html#29\">App\\Domain\\Inventory\\Services\\InventoryService::deductFromWarehouses<\/a>"],[100,2,"<a href=\"Inventory\/Services\/InventoryService.php.html#44\">App\\Domain\\Inventory\\Services\\InventoryService::partialUpdate<\/a>"],[0,1,"<a href=\"Inventory\/Services\/UpdateInventoryQuantity.php.html#9\">App\\Domain\\Inventory\\Services\\UpdateInventoryQuantity::execute<\/a>"],[100,1,"<a href=\"Order\/Commands\/CreateOrder.php.html#33\">App\\Domain\\Order\\Commands\\CreateOrder::handle<\/a>"],[78.26086956521739,3,"<a href=\"Order\/Commands\/InvoiceOrder.php.html#30\">App\\Domain\\Order\\Commands\\InvoiceOrder::handle<\/a>"],[100,1,"<a href=\"Order\/Controllers\/OrderController.php.html#15\">App\\Domain\\Order\\Controllers\\OrderController::__construct<\/a>"],[0,1,"<a href=\"Order\/Controllers\/OrderController.php.html#23\">App\\Domain\\Order\\Controllers\\OrderController::index<\/a>"],[100,1,"<a href=\"Order\/Controllers\/OrderController.php.html#31\">App\\Domain\\Order\\Controllers\\OrderController::store<\/a>"],[100,1,"<a href=\"Order\/DTO\/OrderData.php.html#16\">App\\Domain\\Order\\DTO\\OrderData::__construct<\/a>"],[100,1,"<a href=\"Order\/Events\/GetProductDetail.php.html#17\">App\\Domain\\Order\\Events\\GetProductDetail::__construct<\/a>"],[100,1,"<a href=\"Order\/Events\/OrderProcessed.php.html#17\">App\\Domain\\Order\\Events\\OrderProcessed::__construct<\/a>"],[100,1,"<a href=\"Order\/Models\/Order.php.html#44\">App\\Domain\\Order\\Models\\Order::newFactory<\/a>"],[100,1,"<a href=\"Order\/Requests\/StoreRequest.php.html#15\">App\\Domain\\Order\\Requests\\StoreRequest::authorize<\/a>"],[100,1,"<a href=\"Order\/Requests\/StoreRequest.php.html#25\">App\\Domain\\Order\\Requests\\StoreRequest::rules<\/a>"],[100,1,"<a href=\"Order\/Services\/CreateOrder.php.html#11\">App\\Domain\\Order\\Services\\CreateOrder::execute<\/a>"],[100,1,"<a href=\"Order\/Services\/OrderProduct.php.html#14\">App\\Domain\\Order\\Services\\OrderProduct::__construct<\/a>"],[100,1,"<a href=\"Order\/Services\/OrderProduct.php.html#19\">App\\Domain\\Order\\Services\\OrderProduct::execute<\/a>"],[100,1,"<a href=\"Product\/Commands\/ListProduct.php.html#27\">App\\Domain\\Product\\Commands\\ListProduct::handle<\/a>"],[73.33333333333333,3,"<a href=\"Product\/Commands\/StroreProduct.php.html#34\">App\\Domain\\Product\\Commands\\StroreProduct::handle<\/a>"],[100,1,"<a href=\"Product\/Controllers\/ProductController.php.html#15\">App\\Domain\\Product\\Controllers\\ProductController::__construct<\/a>"],[0,1,"<a href=\"Product\/Controllers\/ProductController.php.html#23\">App\\Domain\\Product\\Controllers\\ProductController::index<\/a>"],[100,1,"<a href=\"Product\/Controllers\/ProductController.php.html#31\">App\\Domain\\Product\\Controllers\\ProductController::store<\/a>"],[100,1,"<a href=\"Product\/DTO\/ProductData.php.html#18\">App\\Domain\\Product\\DTO\\ProductData::__construct<\/a>"],[100,2,"<a href=\"Product\/Listeners\/GetProductDetailListener.php.html#12\">App\\Domain\\Product\\Listeners\\GetProductDetailListener::handle<\/a>"],[100,1,"<a href=\"Product\/Models\/Product.php.html#32\">App\\Domain\\Product\\Models\\Product::newFactory<\/a>"],[100,1,"<a href=\"Product\/Requests\/StoreRequest.php.html#15\">App\\Domain\\Product\\Requests\\StoreRequest::authorize<\/a>"],[100,1,"<a href=\"Product\/Requests\/StoreRequest.php.html#25\">App\\Domain\\Product\\Requests\\StoreRequest::rules<\/a>"],[100,1,"<a href=\"Product\/Services\/CreateProduct.php.html#10\">App\\Domain\\Product\\Services\\CreateProduct::execute<\/a>"],[100,1,"<a href=\"Shared\/Helpers\/Terbilang.php.html#12\">App\\Domain\\Shared\\Helpers\\Terbilang::__construct<\/a>"],[100,11,"<a href=\"Shared\/Helpers\/Terbilang.php.html#17\">App\\Domain\\Shared\\Helpers\\Terbilang::penyebut<\/a>"],[100,3,"<a href=\"Shared\/Helpers\/Terbilang.php.html#49\">App\\Domain\\Shared\\Helpers\\Terbilang::toString<\/a>"],[100,1,"<a href=\"Warehouse\/Commands\/ListWarehouse.php.html#27\">App\\Domain\\Warehouse\\Commands\\ListWarehouse::handle<\/a>"],[69.23076923076923,3,"<a href=\"Warehouse\/Commands\/StoreWarehouse.php.html#31\">App\\Domain\\Warehouse\\Commands\\StoreWarehouse::handle<\/a>"],[100,1,"<a href=\"Warehouse\/Controllers\/WarehouseController.php.html#14\">App\\Domain\\Warehouse\\Controllers\\WarehouseController::__construct<\/a>"],[0,1,"<a href=\"Warehouse\/Controllers\/WarehouseController.php.html#22\">App\\Domain\\Warehouse\\Controllers\\WarehouseController::index<\/a>"],[100,1,"<a href=\"Warehouse\/Controllers\/WarehouseController.php.html#30\">App\\Domain\\Warehouse\\Controllers\\WarehouseController::store<\/a>"],[100,1,"<a href=\"Warehouse\/Models\/Warehouse.php.html#23\">App\\Domain\\Warehouse\\Models\\Warehouse::newFactory<\/a>"],[100,1,"<a href=\"Warehouse\/Requests\/StoreRequest.php.html#15\">App\\Domain\\Warehouse\\Requests\\StoreRequest::authorize<\/a>"],[100,1,"<a href=\"Warehouse\/Requests\/StoreRequest.php.html#25\">App\\Domain\\Warehouse\\Requests\\StoreRequest::rules<\/a>"],[100,1,"<a href=\"Warehouse\/Services\/CreateWarehouse.php.html#9\">App\\Domain\\Warehouse\\Services\\CreateWarehouse::execute<\/a>"],[100,3,"<a href=\"Shared\/Traits\/FormRequestTrait.php.html#9\">App\\Domain\\Shared\\Traits\\FormRequestTrait::fromRequest<\/a>"],[0,2,"<a href=\"Shared\/Traits\/HandlesFailedValidation.php.html#18\">App\\Domain\\Shared\\Traits\\HandlesFailedValidation::failedValidation<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

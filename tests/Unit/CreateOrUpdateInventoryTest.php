@@ -10,7 +10,9 @@ use App\Domain\Inventory\Services\UpdateInventoryQuantity;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Mockery;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(UpdateInventoryQuantity::class)]
 class CreateOrUpdateInventoryTest extends TestCase
 {
     use DatabaseTransactions;
