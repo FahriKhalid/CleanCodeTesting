@@ -16,7 +16,7 @@ class OrderProduct
         $this->createOrder = $createOrder;
     }
 
-    public function execute(OrderData $data): Order
+    public function execute(OrderData $data)
     {
         // Step 1: Get product detail via Domain Event
         $productDetail = event(new GetProductDetail($data->product_id))[0];

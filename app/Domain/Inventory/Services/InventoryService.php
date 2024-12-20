@@ -28,26 +28,31 @@ class InventoryService
 
     protected function deductFromWarehouses(int $productId, int $quantityToDeduct): void
     {
-        $warehouses = Inventory::where('product_id', $productId)
+        $inventoryAvailable = Inventory::where('product_id', $productId)
             ->where('quantity', '>', 0)
             ->get();
 
-        foreach ($warehouses as $warehouse) {
+        foreach ($inventoryAvailable as $inventory) {
             if ($quantityToDeduct <= 0) {
                 break; // Stop once the order quantity is fulfilled
             }
 
-            $availableQuantity = $warehouse->quantity;
+            $this->partialUpdate($inventory, $quantityToDeduct);
+        }
+    }
 
-            if ($availableQuantity >= $quantityToDeduct) {
-                $warehouse->quantity -= $quantityToDeduct;
-                $warehouse->save();
-                $quantityToDeduct = 0; // All required quantity is deducted
-            } else {
-                $quantityToDeduct -= $availableQuantity;
-                $warehouse->quantity = 0;
-                $warehouse->save();
-            }
+    private function partialUpdate(Inventory $inventory, int &$quantityToDeduct): void
+    {
+        $availableQuantity = $inventory->quantity;
+
+        if ($availableQuantity >= $quantityToDeduct) {
+            $inventory->quantity -= $quantityToDeduct;
+            $inventory->save();
+            $quantityToDeduct = 0; // All required quantity is deducted
+        } else {
+            $quantityToDeduct -= $availableQuantity;
+            $inventory->quantity = 0;
+            $inventory->save();
         }
     }
 }

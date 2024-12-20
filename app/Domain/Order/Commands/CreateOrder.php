@@ -32,40 +32,18 @@ class CreateOrder extends Command
      */
     public function handle(OrderProduct $orderProduct)
     {
-        try {
-            // Get the input data from the command
-            $data = new OrderData(
-                product_id: $this->option('product_id'),
-                quantity: $this->option('quantity'),
-            );
+        // Get the input data from the command
+        $data = new OrderData(
+            product_id: $this->option('product_id'),
+            quantity: $this->option('quantity'),
+        );
 
-            // Create a validator using the rules from StoreRequest
-            $request = new StoreRequest();
-            $validator = Validator::make(collect($data)->toArray(), $request->rules());
+        // Create the inventory with validated data
+        $orderProduct->execute($data);
 
-            try {
-                // Validate the data
-                $validator->validate();
-            } catch (ValidationException $e) {
-                // If validation fails, output the errors
-                foreach ($validator->errors()->all() as $error) {
-                    $this->error($error);  // Print each validation error
-                }
+        // Output success message
+        $this->info('Order has been processed');
 
-                return Command::FAILURE;
-            }
-
-            // Create the inventory with validated data
-            $orderProduct->execute($data);
-
-            // Output success message
-            $this->info('Order has been processed');
-
-            return Command::SUCCESS; // Exit with success code
-        } catch (\Throwable $th) {
-            $this->info($th->getMessage());
-
-            return Command::FAILURE; // Exit with failure code
-        }
+        return Command::SUCCESS; // Exit with success code
     }
 }

@@ -45,9 +45,4 @@ class Order extends Model
     {
         return OrderFactory::new();
     }
-
-    public function scopeProductId(Builder $query, int $productId): void
-    {
-        $query->where('product_id', $productId);
-    }
 }
