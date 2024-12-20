@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\Domain\Inventory\Models\Inventory;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Artisan;
+use Tests\TestCase;
 
 class CreateInventoryCliTest extends TestCase
 {

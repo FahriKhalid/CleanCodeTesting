@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Domain\Product\Models\Product;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class CreateProductCliTest extends TestCase

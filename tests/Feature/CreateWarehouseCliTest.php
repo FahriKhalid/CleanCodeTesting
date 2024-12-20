@@ -3,13 +3,14 @@
 namespace Tests\Feature;
 
 use App\Domain\Warehouse\Models\Warehouse;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Artisan;
+use Tests\TestCase;
 
 class CreateWarehouseCliTest extends TestCase
 {
     use DatabaseTransactions;
+
     /**
      * A basic feature test example.
      */

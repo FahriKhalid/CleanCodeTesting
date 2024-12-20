@@ -2,16 +2,13 @@
 
 namespace Tests\Feature;
 
-use App\Domain\Order\Events\GetProductDetail;
 use App\Domain\Order\Models\Order;
 use App\Domain\Product\Models\Product;
 use App\Domain\Shared\Helpers\Terbilang;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Log;
 use Mockery;
+use Tests\TestCase;
 
 class OderProductCliTest extends TestCase
 {
@@ -66,7 +63,7 @@ class OderProductCliTest extends TestCase
         $this->app->instance(Terbilang::class, $terbilangMock);
 
         // Run the command
-        $this->artisan('api:post-invoice --order_id=' . $order->id)
+        $this->artisan('api:post-invoice --order_id='.$order->id)
             ->expectsTable(
                 ['Nama', 'Harga', 'Jumlah', 'Total Harga', 'Terbilang'],
                 [
