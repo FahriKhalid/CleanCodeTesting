@@ -34,7 +34,7 @@ class Terbilang
         } elseif ($nilai < 2000) {
             $temp = ' seribu' . $this->penyebut($nilai - 1000);
         } elseif ($nilai < 1000000) {
-            $temp = $this->penyebut($nilai / 1000) . ' ribu' . $this->penyebut($nilai % 1000);
+            $temp = $this->penyebut($nilai / 1000) . 'ribu' . $this->penyebut($nilai % 1000);
         } elseif ($nilai < 1000000000) {
             $temp = $this->penyebut($nilai / 1000000) . ' juta' . $this->penyebut($nilai % 1000000);
         } elseif ($nilai < 1000000000000) {

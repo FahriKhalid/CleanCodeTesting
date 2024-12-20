@@ -3,9 +3,9 @@
 namespace App\Domain\Order\Controllers;
 
 use App\Domain\Order\DTO\OrderData;
+use App\Domain\Order\Models\Order;
 use App\Domain\Order\Requests\StoreRequest;
 use App\Domain\Order\Services\OrderProduct;
-use App\Domain\Order\Models\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

@@ -46,12 +46,13 @@ class StroreProduct extends Command
 
         try {
             // Validate the data
-            $validatedData = $validator->validate();
+            $validator->validate();
         } catch (ValidationException $e) {
             // If validation fails, output the errors
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);  // Print each validation error
             }
+
             return Command::FAILURE;
         }
 

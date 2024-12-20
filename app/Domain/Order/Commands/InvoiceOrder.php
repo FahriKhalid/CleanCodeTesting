@@ -24,9 +24,6 @@ class InvoiceOrder extends Command
      */
     protected $description = 'Get an invoice order via CLI';
 
-
-    protected $terbilang;
-
     /**
      * Execute the console command.
      */
@@ -35,8 +32,9 @@ class InvoiceOrder extends Command
         $orderId = $this->option('order_id');
 
         // Check if order_id is provided
-        if (!$orderId) {
+        if (! $orderId) {
             $this->error('The --order_id option is required.');
+
             return Command::FAILURE; // Exit with failure code
         }
 
@@ -59,14 +57,15 @@ class InvoiceOrder extends Command
                         'Harga' => $productDetail['price'],
                         'Jumlah' => $order->quantity,
                         'Total Harga' => $order->total_price,
-                        'Terbilang' => $terbilang->toString()
-                    ]
+                        'Terbilang' => $terbilang->toString(),
+                    ],
                 ]
             );
 
             return Command::SUCCESS; // Exit with success code
         } catch (\Throwable $th) {
             $this->info($th->getMessage());
+
             return Command::FAILURE; // Exit with failure code
         }
     }

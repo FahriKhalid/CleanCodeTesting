@@ -3,12 +3,11 @@
 namespace Tests\Feature;
 
 use App\Domain\Warehouse\Models\Warehouse;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
 
 class CreateWarehouseTest extends TestCase
 {
-
     use DatabaseTransactions;
 
     /**
@@ -24,12 +23,12 @@ class CreateWarehouseTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJsonFragment([
-                'name' => $payload['name']
+                'name' => $payload['name'],
             ]);
 
         // Verify the database contains the record
         $this->assertDatabaseHas('warehouses', [
-            'name' => $payload['name']
+            'name' => $payload['name'],
         ]);
     }
 }

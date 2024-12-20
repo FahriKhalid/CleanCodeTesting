@@ -3,11 +3,7 @@
 namespace App\Domain\Inventory\Commands;
 
 use App\Domain\Inventory\Models\Inventory;
-use App\Domain\Inventory\Requests\StoreRequest;
-use App\Domain\Inventory\Services\CreateOrUpdateInventory;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 
 class ListInventory extends Command
 {

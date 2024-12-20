@@ -22,7 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | Product Routes
@@ -31,7 +30,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/product', [ProductController::class, 'store']);
-
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +48,6 @@ Route::post('/warehouse', [WarehouseController::class, 'store']);
 
 Route::get('/inventory', [InventoryController::class, 'index']);
 Route::post('/inventory', [InventoryController::class, 'store']);
-
 
 /*
 |--------------------------------------------------------------------------

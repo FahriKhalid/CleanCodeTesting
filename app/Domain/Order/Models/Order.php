@@ -3,9 +3,9 @@
 namespace App\Domain\Order\Models;
 
 use Database\Factories\OrderFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 
 class Order extends Model
 {
@@ -24,7 +24,7 @@ class Order extends Model
      * @var array<int, string>
      */
     protected $guarded = [
-        'id'
+        'id',
     ];
 
     /**

@@ -3,9 +3,9 @@
 namespace App\Domain\Inventory\Services;
 
 use App\Domain\Inventory\Helpers\Calculator\AddCalculation;
-use App\Domain\Inventory\Helpers\Calculator\SubtractCalculation;
-use App\Domain\Inventory\Helpers\Calculator\MultiplyCalculation;
 use App\Domain\Inventory\Helpers\Calculator\DivideCalculation;
+use App\Domain\Inventory\Helpers\Calculator\MultiplyCalculation;
+use App\Domain\Inventory\Helpers\Calculator\SubtractCalculation;
 
 class Calculator
 {

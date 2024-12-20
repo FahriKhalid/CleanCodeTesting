@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Domain\Inventory\Listeners\UpdateInventoryQuantity;
 use App\Domain\Order\Events\GetProductDetail;
 use App\Domain\Order\Events\OrderProcessed;
-use App\Domain\Inventory\Listeners\UpdateInventoryQuantity;
 use App\Domain\Product\Listeners\GetProductDetailListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -24,11 +24,11 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         GetProductDetail::class => [
-            GetProductDetailListener::class
+            GetProductDetailListener::class,
         ],
 
         OrderProcessed::class => [
-            UpdateInventoryQuantity::class
+            UpdateInventoryQuantity::class,
         ],
     ];
 

@@ -3,11 +3,9 @@
 namespace App\Domain\Order\Services;
 
 use App\Domain\Order\DTO\OrderData;
-use App\Domain\Order\Events\GetDetailProduct;
 use App\Domain\Order\Events\GetProductDetail;
 use App\Domain\Order\Events\OrderProcessed;
 use App\Domain\Order\Models\Order;
-use Illuminate\Support\Facades\DB;
 
 class OrderProduct
 {

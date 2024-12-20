@@ -7,7 +7,9 @@ use App\Domain\Inventory\Models\Inventory;
 class CreateOrUpdateInventory
 {
     protected $checkUniqueInventory;
+
     protected $updateInventoryQuantity;
+
     protected $createInventory;
 
     public function __construct(

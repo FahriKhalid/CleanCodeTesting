@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Domain\Warehouse\Models\Warehouse;
 use App\Domain\Warehouse\Services\CreateWarehouse;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
 
 class CreateWarehouseTest extends TestCase
 {

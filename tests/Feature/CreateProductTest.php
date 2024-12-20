@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Domain\Product\Models\Product;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
-use App\Domain\Product\Models\Product;
 
 class CreateProductTest extends TestCase
 {
@@ -25,14 +25,14 @@ class CreateProductTest extends TestCase
             ->assertJsonFragment([
                 'name' => $payload['name'],
                 'price' => $payload['price'],
-                'description' => $payload['description']
+                'description' => $payload['description'],
             ]);
 
         // Verify the database contains the record
         $this->assertDatabaseHas('products', [
             'name' => $payload['name'],
             'price' => $payload['price'],
-            'description' => $payload['description']
+            'description' => $payload['description'],
         ]);
     }
 }

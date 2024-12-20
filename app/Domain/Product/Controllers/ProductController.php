@@ -2,8 +2,8 @@
 
 namespace App\Domain\Product\Controllers;
 
-use App\Domain\Product\Models\Product;
 use App\Domain\Product\DTO\ProductData;
+use App\Domain\Product\Models\Product;
 use App\Domain\Product\Requests\StoreRequest;
 use App\Domain\Product\Services\CreateProduct;
 use App\Http\Controllers\Controller;

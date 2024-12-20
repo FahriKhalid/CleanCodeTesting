@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class OrderProductTest extends TestCase
 {
-
     use DatabaseTransactions;
 
     /**

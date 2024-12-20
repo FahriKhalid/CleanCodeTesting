@@ -36,7 +36,7 @@ class StoreInventory extends Command
         $data = [
             'product_id' => $this->option('product_id'),
             'warehouse_id' => $this->option('warehouse_id'),
-            'quantity' => $this->option('quantity')
+            'quantity' => $this->option('quantity'),
         ];
 
         // Create a validator using the rules from StoreRequest
@@ -51,6 +51,7 @@ class StoreInventory extends Command
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);  // Print each validation error
             }
+
             return Command::FAILURE;
         }
 

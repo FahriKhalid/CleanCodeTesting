@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 
 class WarehouseController extends Controller
 {
-
     protected $createWarehouse;
 
     public function __construct(CreateWarehouse $createWarehouse)

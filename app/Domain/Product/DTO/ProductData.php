@@ -9,7 +9,9 @@ class ProductData
     use FormRequestTrait;
 
     public string $name;
+
     public ?string $description;
+
     public float $price;
 
     // Modify the constructor to use default values

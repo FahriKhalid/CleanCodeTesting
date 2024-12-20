@@ -2,11 +2,11 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use App\Domain\Product\Services\CreateProduct;
-use App\Domain\Product\Models\Product;
 use App\Domain\Product\DTO\ProductData;
+use App\Domain\Product\Models\Product;
+use App\Domain\Product\Services\CreateProduct;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
 
 class CreateProductTest extends TestCase
 {

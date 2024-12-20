@@ -9,6 +9,7 @@ class OrderData
     use FormRequestTrait;
 
     public int $product_id;
+
     public float $quantity;
 
     // Modify the constructor to use default values

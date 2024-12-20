@@ -47,6 +47,7 @@ class StoreWarehouse extends Command
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);  // Print each validation error
             }
+
             return Command::FAILURE;
         }
 

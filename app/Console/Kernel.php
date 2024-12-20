@@ -7,7 +7,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-
     protected $commands = [
         \App\Domain\Product\Commands\StroreProduct::class,
         \App\Domain\Product\Commands\ListProduct::class,
@@ -16,7 +15,7 @@ class Kernel extends ConsoleKernel
         \App\Domain\Inventory\Commands\StoreInventory::class,
         \App\Domain\Inventory\Commands\ListInventory::class,
         \App\Domain\Order\Commands\CreateOrder::class,
-        \App\Domain\Order\Commands\InvoiceOrder::class
+        \App\Domain\Order\Commands\InvoiceOrder::class,
     ];
 
     /**
@@ -24,7 +23,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
     }
 
     /**
@@ -32,7 +30,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__ . '/Commands');
+        $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
     }

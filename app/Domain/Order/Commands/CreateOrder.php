@@ -2,6 +2,7 @@
 
 namespace App\Domain\Order\Commands;
 
+use App\Domain\Order\DTO\OrderData;
 use App\Domain\Order\Requests\StoreRequest;
 use App\Domain\Order\Services\OrderProduct;
 use Illuminate\Console\Command;
@@ -33,36 +34,37 @@ class CreateOrder extends Command
     {
         try {
             // Get the input data from the command
-            $data = [
-                'product_id' => $this->option('product_id'),
-                'quantity' => $this->option('quantity')
-            ];
+            $data = new OrderData(
+                product_id: $this->option('product_id'),
+                quantity: $this->option('quantity'),
+            );
 
             // Create a validator using the rules from StoreRequest
             $request = new StoreRequest();
-            $validator = Validator::make($data, $request->rules());
+            $validator = Validator::make(collect($data)->toArray(), $request->rules());
 
             try {
                 // Validate the data
-                $validatedData = $validator->validate();
+                $validator->validate();
             } catch (ValidationException $e) {
                 // If validation fails, output the errors
                 foreach ($validator->errors()->all() as $error) {
                     $this->error($error);  // Print each validation error
                 }
+
                 return Command::FAILURE;
             }
 
             // Create the inventory with validated data
-            $orderProduct->execute($validatedData);
+            $orderProduct->execute($data);
 
             // Output success message
-            $this->info("Order has been processed");
+            $this->info('Order has been processed');
 
             return Command::SUCCESS; // Exit with success code
         } catch (\Throwable $th) {
-
             $this->info($th->getMessage());
+
             return Command::FAILURE; // Exit with failure code
         }
     }

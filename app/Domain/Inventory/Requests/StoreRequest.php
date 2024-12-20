@@ -7,7 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRequest extends FormRequest
 {
-
     use HandlesFailedValidation;
 
     /**
@@ -28,7 +27,7 @@ class StoreRequest extends FormRequest
         return [
             'product_id' => 'required|numeric|exists:products,id',
             'warehouse_id' => 'required|numeric|exists:warehouses,id',
-            'quantity' => 'required|numeric'
+            'quantity' => 'required|numeric',
         ];
     }
 }
