@@ -80,13 +80,7 @@ jobs:
 
       - name: Run SonarQube Analysis
         run: |
-          sonar-scanner \
-            -X \
-            -Dsonar.projectKey='${{ secrets.SONAR_PROJECT_KEY }}' \
-            -Dsonar.login=${{ secrets.SONAR_LOGIN }} \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST }} \
-            -Dsonar.sources=app \
-            -Dsonar.tests=tests \
-            -Dsonar.php.coverage.reportPaths=coverage.xml \
-            -Dsonar.sourceEncoding=UTF-8
+          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml
+          cp sonar-project.properties.example sonar-project.properties
+          sonar-scanner -Dsonar.login=${{ secrets.SONAR_LOGIN }} -Dsonar.host.url=${{ secrets.SONAR_HOST }}
         working-directory: /var/www/html
